@@ -1,0 +1,6 @@
+# Example usage:
+# format: '${prefix} ${username}: ${message}'
+# All available variables:
+# username, uuid, prefix, suffix, world, message
+# Make sure to put your format in quotes.
+format: '${prefix} ${username}${suffix}: ${message}'

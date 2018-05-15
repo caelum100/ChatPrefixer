@@ -1,0 +1,4 @@
+name: ChatPrefixer
+version: ${project.version}
+main: net.caelum100.chatprefixer.ChatPrefixer
+depend: [Vault]
