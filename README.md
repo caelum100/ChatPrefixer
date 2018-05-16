@@ -33,4 +33,4 @@ Please make sure to enclose your format in the YAML configuration in single quot
 
 **Support**
 
-Please do not leave a bad review asking for support. Instead, go to the issue tracker and post an issue or send me a PM.
+Please do not leave a bad review asking for support. Instead, go to the issue tracker and post an issue or send me a PM on SpigotMC.
