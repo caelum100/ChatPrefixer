@@ -14,13 +14,13 @@ import static org.mockito.Mockito.when;
 @RunWith(PowerMockRunner.class)
 public class PrefixVariableReplacerTest {
 
-    @Test
-    public void apply() {
-        Chat chat = mock(Chat.class);
-        final String prefix = "[Prefix]";
-        when(chat.getPlayerPrefix(ArgumentMatchers.any())).thenReturn(prefix);
+  @Test
+  public void apply() {
+    Chat chat = mock(Chat.class);
+    final String prefix = "[Prefix]";
+    when(chat.getPlayerPrefix(ArgumentMatchers.any())).thenReturn(prefix);
 
-        Player player = mock(Player.class);
-        assertEquals(new PrefixVariableReplacer(chat).apply(player), prefix);
-    }
+    Player player = mock(Player.class);
+    assertEquals(new PrefixVariableReplacer(chat).apply(player), prefix);
+  }
 }

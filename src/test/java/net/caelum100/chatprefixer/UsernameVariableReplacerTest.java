@@ -12,12 +12,12 @@ import static org.mockito.Mockito.when;
 @RunWith(PowerMockRunner.class)
 public class UsernameVariableReplacerTest {
 
-    @Test
-    public void apply() {
-        Player player = mock(Player.class);
-        final String name = "Name";
-        when(player.getName()).thenReturn(name);
+  @Test
+  public void apply() {
+    Player player = mock(Player.class);
+    final String name = "Name";
+    when(player.getName()).thenReturn(name);
 
-        assertEquals(new UsernameVariableReplacer().apply(player), name);
-    }
+    assertEquals(new UsernameVariableReplacer().apply(player), name);
+  }
 }

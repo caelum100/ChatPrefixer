@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
-import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -27,41 +26,41 @@ import static org.mockito.Mockito.when;
 @PrepareForTest(AsyncPlayerChatEvent.class)
 public class ChatListenerTest {
 
-    @Test
-    public void onChat() {
-        AsyncPlayerChatEvent event = PowerMockito.mock(AsyncPlayerChatEvent.class);
-        Player sender = mock(Player.class);
-        when(sender.getName()).thenReturn("TestPlayer");
-        when(sender.getUniqueId()).thenReturn(UUID.randomUUID());
-        World world = mock(World.class);
-        when(world.getName()).thenReturn("TestWorld");
-        when(sender.getWorld()).thenReturn(world);
+  @Test
+  public void onChat() {
+    AsyncPlayerChatEvent event = PowerMockito.mock(AsyncPlayerChatEvent.class);
+    Player sender = mock(Player.class);
+    when(sender.getName()).thenReturn("TestPlayer");
+    when(sender.getUniqueId()).thenReturn(UUID.randomUUID());
+    World world = mock(World.class);
+    when(world.getName()).thenReturn("TestWorld");
+    when(sender.getWorld()).thenReturn(world);
 
-        PowerMockito.when(event.getPlayer()).thenReturn(sender);
-        when(event.getMessage()).thenReturn("TestMessage");
+    PowerMockito.when(event.getPlayer()).thenReturn(sender);
+    when(event.getMessage()).thenReturn("TestMessage");
 
-        ChatPrefixer plugin = mock(ChatPrefixer.class);
-        Chat chat = mock(Chat.class);
-        when(chat.getPlayerSuffix(any())).thenReturn(" [TestSuffix]");
-        when(chat.getPlayerPrefix(any())).thenReturn("[TestPrefix] ");
-        when(plugin.getChat()).thenReturn(chat);
-        when(plugin.getFormat()).thenReturn("${prefix}${username} ${world}${suffix}: ${message}");
+    ChatPrefixer plugin = mock(ChatPrefixer.class);
+    Chat chat = mock(Chat.class);
+    when(chat.getPlayerSuffix(any())).thenReturn(" [TestSuffix]");
+    when(chat.getPlayerPrefix(any())).thenReturn("[TestPrefix] ");
+    when(plugin.getChat()).thenReturn(chat);
+    when(plugin.getFormat()).thenReturn("${prefix}${username} ${world}${suffix}: ${message}");
 
-        AtomicReference<Object> result = new AtomicReference<>();
+    AtomicReference<Object> result = new AtomicReference<>();
 
-        Mockito.doAnswer(new Answer<Void>() {
-            @Override
-            public Void answer(InvocationOnMock i) {
-                result.set(i.getArguments()[0]);
-                return null;
-            }
-        }).when(event).setFormat(ArgumentMatchers.anyString());
+    Mockito.doAnswer(new Answer<Void>() {
+      @Override
+      public Void answer(InvocationOnMock i) {
+        result.set(i.getArguments()[0]);
+        return null;
+      }
+    }).when(event).setFormat(ArgumentMatchers.anyString());
 
-        ChatListener listener = new ChatListener(plugin);
-        listener.onChat(event);
+    ChatListener listener = new ChatListener(plugin);
+    listener.onChat(event);
 
-        Assert.assertEquals("[TestPrefix] TestPlayer TestWorld" +
-                " [TestSuffix]: TestMessage", result.get());
+    Assert.assertEquals("[TestPrefix] TestPlayer TestWorld" +
+            " [TestSuffix]: TestMessage", result.get());
 
-    }
+  }
 }

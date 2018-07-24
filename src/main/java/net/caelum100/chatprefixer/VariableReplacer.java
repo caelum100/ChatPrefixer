@@ -6,5 +6,5 @@ import org.bukkit.entity.Player;
  *
  */
 public interface VariableReplacer {
-    String apply(Player sender);
+  String apply(Player sender);
 }

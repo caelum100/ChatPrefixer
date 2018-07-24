@@ -12,13 +12,13 @@ import static org.mockito.Mockito.*;
 @RunWith(PowerMockRunner.class)
 public class SuffixVariableReplacerTest {
 
-    @Test
-    public void apply() {
-        Chat chat = mock(Chat.class);
-        String suffix = "[Suffix]";
-        when(chat.getPlayerSuffix(any())).thenReturn(suffix);
-        Player player = mock(Player.class);
+  @Test
+  public void apply() {
+    Chat chat = mock(Chat.class);
+    String suffix = "[Suffix]";
+    when(chat.getPlayerSuffix(any())).thenReturn(suffix);
+    Player player = mock(Player.class);
 
-        assertEquals(suffix, new SuffixVariableReplacer(chat).apply(player));
-    }
+    assertEquals(suffix, new SuffixVariableReplacer(chat).apply(player));
+  }
 }

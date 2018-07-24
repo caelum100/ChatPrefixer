@@ -14,12 +14,12 @@ import static org.mockito.Mockito.when;
 @RunWith(PowerMockRunner.class)
 public class UuidVariableReplacerTest {
 
-    @Test
-    public void apply() {
-        Player player = mock(Player.class);
-        final UUID uuid = UUID.randomUUID();
-        when(player.getUniqueId()).thenReturn(uuid);
+  @Test
+  public void apply() {
+    Player player = mock(Player.class);
+    final UUID uuid = UUID.randomUUID();
+    when(player.getUniqueId()).thenReturn(uuid);
 
-        assertEquals(new UuidVariableReplacer().apply(player), uuid.toString());
-    }
+    assertEquals(new UuidVariableReplacer().apply(player), uuid.toString());
+  }
 }
