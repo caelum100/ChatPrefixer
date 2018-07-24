@@ -3,6 +3,7 @@ package net.caelum100.chatprefixer;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import net.milkbowl.vault.chat.Chat;
+import org.bstats.bukkit.MetricsLite;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,6 +18,7 @@ public class ChatListener implements Listener {
     public ChatListener(ChatPrefixer plugin) {
         this.plugin = plugin;
         this.chat = plugin.getChat();
+
         VARIABLES = ImmutableMap.of("prefix", new PrefixVariableReplacer(chat), "world", new WorldVariableReplacer(),
                 "uuid", new UuidVariableReplacer(), "username", new UsernameVariableReplacer(),
                 "suffix", new SuffixVariableReplacer(chat));

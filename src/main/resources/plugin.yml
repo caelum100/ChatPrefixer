@@ -1,4 +1,6 @@
-name: ChatPrefixer
+name: ${project.name}
 version: ${project.version}
 main: net.caelum100.chatprefixer.ChatPrefixer
+author: gzx
 depend: [Vault]
+api-version: 1.13

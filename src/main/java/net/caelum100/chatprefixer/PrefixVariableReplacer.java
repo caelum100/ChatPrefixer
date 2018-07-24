@@ -1,6 +1,7 @@
 package net.caelum100.chatprefixer;
 
 import net.milkbowl.vault.chat.Chat;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class PrefixVariableReplacer implements VariableReplacer {
@@ -11,6 +12,6 @@ public class PrefixVariableReplacer implements VariableReplacer {
 
     @Override
     public String apply(Player sender) {
-        return chat.getPlayerPrefix(sender);
+        return ChatColor.translateAlternateColorCodes('&', chat.getPlayerPrefix(sender));
     }
 }

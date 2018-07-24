@@ -1,6 +1,7 @@
 package net.caelum100.chatprefixer;
 
 import net.milkbowl.vault.chat.Chat;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class SuffixVariableReplacer implements VariableReplacer {
@@ -11,6 +12,6 @@ public class SuffixVariableReplacer implements VariableReplacer {
 
     @Override
     public String apply(Player player) {
-        return chat.getPlayerSuffix(player);
+        return ChatColor.translateAlternateColorCodes('&', chat.getPlayerSuffix(player));
     }
 }
