@@ -31,7 +31,7 @@ public class ChatListener implements Listener {
       message = message.replaceAll("\\$\\{" + var + "\\}", VARIABLES.get(var).apply(sender));
     }
     // Exclusive variable
-    message = message.replaceAll("\\$\\{message\\}", event.getMessage());
+    message = message.replaceAll("\\$\\{message}", event.getMessage());
 
     event.setFormat(message);
   }
