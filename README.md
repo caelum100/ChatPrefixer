@@ -21,6 +21,8 @@ ${world} - the sending player's world's name.
 
 ${username} - the sending player's username.
 
+${nickname} - the player's Essentials nickname. Requires EssentialsX to be installed.
+
 ${uuid} - the sending player's UUID.
 
 ${prefix} - the prefix set for the sending player
