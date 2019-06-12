@@ -1,5 +1,6 @@
 package me.caelunshun.chatprefixer;
 
+import com.earth2me.essentials.Essentials;
 import me.caelunshun.shun.UpdateChecker;
 import net.milkbowl.vault.chat.Chat;
 import org.bstats.bukkit.MetricsLite;
@@ -10,9 +11,13 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatPrefixer extends JavaPlugin {
+  private static final String ESSENTIALS = "EssentialsX";
+
   private Chat chat;
   private String format;
   private FileConfiguration config;
+
+  private Essentials essentials;
 
   @Override
   public void onEnable() {
@@ -37,6 +42,10 @@ public class ChatPrefixer extends JavaPlugin {
 
     if (config.getBoolean("checkForUpdates")) new UpdateChecker(this, "56778");
 
+    if (Bukkit.getPluginManager().isPluginEnabled(ESSENTIALS)) {
+      this.essentials = (Essentials) Bukkit.getPluginManager().getPlugin(ESSENTIALS);
+    }
+
     Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
   }
 
@@ -50,4 +59,6 @@ public class ChatPrefixer extends JavaPlugin {
   public Chat getChat() {
     return chat;
   }
+
+  public Essentials getEssentials() { return essentials; }
 }

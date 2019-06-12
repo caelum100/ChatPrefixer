@@ -18,17 +18,14 @@ public class ChatListener implements Listener {
     this.chat = plugin.getChat();
 
     VARIABLES =
-        ImmutableMap.of(
-            "prefix",
-            new PrefixVariableReplacer(chat),
-            "world",
-            new WorldVariableReplacer(),
-            "uuid",
-            new UuidVariableReplacer(),
-            "username",
-            new UsernameVariableReplacer(),
-            "suffix",
-            new SuffixVariableReplacer(chat));
+        new ImmutableMap.Builder<String, VariableReplacer>()
+            .put("prefix", new PrefixVariableReplacer(chat))
+            .put("world", new WorldVariableReplacer())
+            .put("uuid", new UuidVariableReplacer())
+            .put("username", new UsernameVariableReplacer())
+            .put("suffix", new SuffixVariableReplacer(chat))
+            .put("nickname", new NicknameVariableReplacer(plugin))
+            .build();
   }
 
   @EventHandler
@@ -37,6 +34,8 @@ public class ChatListener implements Listener {
 
     String message = plugin.getFormat();
     for (String var : VARIABLES.keySet()) {
+      if (!message.contains("${" + var + "}")) continue;
+
       message = message.replaceAll("\\$\\{" + var + "\\}", VARIABLES.get(var).apply(sender));
     }
     // Exclusive variable
