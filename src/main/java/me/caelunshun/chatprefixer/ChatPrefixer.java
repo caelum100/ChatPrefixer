@@ -1,4 +1,4 @@
-package net.caelum100.chatprefixer;
+package me.caelunshun.chatprefixer;
 
 import me.caelunshun.shun.UpdateChecker;
 import net.milkbowl.vault.chat.Chat;

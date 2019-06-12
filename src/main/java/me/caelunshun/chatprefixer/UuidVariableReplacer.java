@@ -1,4 +1,4 @@
-package net.caelum100.chatprefixer;
+package me.caelunshun.chatprefixer;
 
 import org.bukkit.entity.Player;
 

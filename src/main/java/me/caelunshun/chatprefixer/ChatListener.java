@@ -1,4 +1,4 @@
-package net.caelum100.chatprefixer;
+package me.caelunshun.chatprefixer;
 
 import com.google.common.collect.ImmutableMap;
 import net.milkbowl.vault.chat.Chat;
