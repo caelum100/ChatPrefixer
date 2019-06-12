@@ -1,6 +1,6 @@
 package net.caelum100.chatprefixer;
 
-import net.caelum100.chatprefixer.updatechecker.ChatPrefixerUpdater;
+import me.caelunshun.shun.UpdateChecker;
 import net.milkbowl.vault.chat.Chat;
 import org.bstats.bukkit.MetricsLite;
 import org.bukkit.Bukkit;
@@ -30,11 +30,13 @@ public class ChatPrefixer extends JavaPlugin {
     chat = provider.getProvider();
 
     MetricsLite metrics = new MetricsLite(this);
-    ChatPrefixerUpdater updater = new ChatPrefixerUpdater(this);
     saveDefaultConfig();
 
     config = getConfig();
     format = ChatColor.translateAlternateColorCodes('&', config.getString("format"));
+
+    if (config.getBoolean("checkForUpdates"))
+      new UpdateChecker(this, "56778");
 
     Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
   }

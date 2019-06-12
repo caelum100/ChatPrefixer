@@ -46,6 +46,10 @@
                                     <pattern>org.bstats</pattern>
                                     <shadedPattern>net.caelum100.chatprefixer.lib.bstats</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>me.caelunshun.shun</pattern>
+                                    <shadedPattern>me.caelunshun.chatprefixer.lib.shun</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
@@ -77,11 +81,15 @@
         </repository>
         <repository>
             <id>vault-repo</id>
-            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
+            <url>http://nexus.hc.to/content/repositories/pub_releases/</url>
         </repository>
         <repository>
             <id>bstats-repo</id>
             <url>http://repo.bstats.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>caelunshun-repo</id>
+            <url>https://mvn.caelunshun.org/repository/internal/</url>
         </repository>
     </repositories>
 
@@ -102,6 +110,12 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit-lite</artifactId>
             <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.caelunshun</groupId>
+            <artifactId>shun</artifactId>
+            <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
