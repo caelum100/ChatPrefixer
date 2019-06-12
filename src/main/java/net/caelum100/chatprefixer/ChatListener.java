@@ -17,9 +17,18 @@ public class ChatListener implements Listener {
     this.plugin = plugin;
     this.chat = plugin.getChat();
 
-    VARIABLES = ImmutableMap.of("prefix", new PrefixVariableReplacer(chat), "world", new WorldVariableReplacer(),
-            "uuid", new UuidVariableReplacer(), "username", new UsernameVariableReplacer(),
-            "suffix", new SuffixVariableReplacer(chat));
+    VARIABLES =
+        ImmutableMap.of(
+            "prefix",
+            new PrefixVariableReplacer(chat),
+            "world",
+            new WorldVariableReplacer(),
+            "uuid",
+            new UuidVariableReplacer(),
+            "username",
+            new UsernameVariableReplacer(),
+            "suffix",
+            new SuffixVariableReplacer(chat));
   }
 
   @EventHandler

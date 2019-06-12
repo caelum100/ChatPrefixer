@@ -16,10 +16,14 @@ public class ChatPrefixer extends JavaPlugin {
 
   @Override
   public void onEnable() {
-    RegisteredServiceProvider<Chat> provider = Bukkit.getServicesManager().getRegistration(Chat.class);
+    RegisteredServiceProvider<Chat> provider =
+        Bukkit.getServicesManager().getRegistration(Chat.class);
     if (provider == null) {
-      Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[ChatPrefixer] Could not load Vault Chat API.\n" +
-              "This most likely means that you need to install a Vault-compatible permissions plugin.");
+      Bukkit.getConsoleSender()
+          .sendMessage(
+              ChatColor.RED
+                  + "[ChatPrefixer] Could not load Vault Chat API.\n"
+                  + "This most likely means that you need to install a Vault-compatible permissions plugin.");
       Bukkit.getPluginManager().disablePlugin(this);
       return;
     }
@@ -36,9 +40,7 @@ public class ChatPrefixer extends JavaPlugin {
   }
 
   @Override
-  public void onDisable() {
-
-  }
+  public void onDisable() {}
 
   public String getFormat() {
     return format;

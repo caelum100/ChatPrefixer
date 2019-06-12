@@ -39,18 +39,18 @@ public class ChatPrefixerUpdater {
 
       con.connect();
       try (BufferedReader reader =
-                   new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+          new BufferedReader(new InputStreamReader(con.getInputStream()))) {
         String latestVersion = reader.readLine();
 
         if (latestVersion != null && !currentVersion.equals(latestVersion)) {
           Bukkit.getConsoleSender()
-                  .sendMessage(
-                          String.format(
-                                  PREFIX
-                                          + ChatColor.AQUA
-                                          + "A new version (v%s) is available! Please download it from the plugin resource page; "
-                                          + "you will receive no support regarding old versions of the plugin.",
-                                  latestVersion));
+              .sendMessage(
+                  String.format(
+                      PREFIX
+                          + ChatColor.AQUA
+                          + "A new version (v%s) is available! Please download it from the plugin resource page; "
+                          + "you will receive no support regarding old versions of the plugin.",
+                      latestVersion));
           newVersionFound = true;
         }
       }

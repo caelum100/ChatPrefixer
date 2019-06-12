@@ -48,19 +48,21 @@ public class ChatListenerTest {
 
     AtomicReference<Object> result = new AtomicReference<>();
 
-    Mockito.doAnswer(new Answer<Void>() {
-      @Override
-      public Void answer(InvocationOnMock i) {
-        result.set(i.getArguments()[0]);
-        return null;
-      }
-    }).when(event).setFormat(ArgumentMatchers.anyString());
+    Mockito.doAnswer(
+            new Answer<Void>() {
+              @Override
+              public Void answer(InvocationOnMock i) {
+                result.set(i.getArguments()[0]);
+                return null;
+              }
+            })
+        .when(event)
+        .setFormat(ArgumentMatchers.anyString());
 
     ChatListener listener = new ChatListener(plugin);
     listener.onChat(event);
 
-    Assert.assertEquals("[TestPrefix] TestPlayer TestWorld" +
-            " [TestSuffix]: TestMessage", result.get());
-
+    Assert.assertEquals(
+        "[TestPrefix] TestPlayer TestWorld" + " [TestSuffix]: TestMessage", result.get());
   }
 }
