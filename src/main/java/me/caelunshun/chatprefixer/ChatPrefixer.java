@@ -35,8 +35,7 @@ public class ChatPrefixer extends JavaPlugin {
     config = getConfig();
     format = ChatColor.translateAlternateColorCodes('&', config.getString("format"));
 
-    if (config.getBoolean("checkForUpdates"))
-      new UpdateChecker(this, "56778");
+    if (config.getBoolean("checkForUpdates")) new UpdateChecker(this, "56778");
 
     Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
   }

@@ -44,13 +44,14 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>net.caelum100.chatprefixer.lib.bstats</shadedPattern>
+                                    <shadedPattern>me.caelunshun.chatprefixer.lib.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>me.caelunshun.shun</pattern>
                                     <shadedPattern>me.caelunshun.chatprefixer.lib.shun</shadedPattern>
                                 </relocation>
                             </relocations>
+                            <minimizeJar>true</minimizeJar>
                         </configuration>
                     </execution>
                 </executions>
