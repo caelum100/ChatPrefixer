@@ -3,5 +3,5 @@ version: ${project.version}
 main: me.caelunshun.chatprefixer.ChatPrefixer
 author: gzx
 depend: [Vault]
-softdepend: [EssentialsX]
+softdepend: [Essentials]
 api-version: 1.13

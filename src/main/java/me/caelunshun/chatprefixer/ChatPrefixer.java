@@ -11,7 +11,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatPrefixer extends JavaPlugin {
-  private static final String ESSENTIALS = "EssentialsX";
+  private static final String ESSENTIALS = "Essentials";
 
   private Chat chat;
   private String format;
